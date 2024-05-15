@@ -1,0 +1,30 @@
+def metros_a_sistema_ingles(cantidad_metros):
+    millas = cantidad_metros / 1609.34
+    kilometros = cantidad_metros / 1000
+    pies = cantidad_metros * 3.28084
+    pulgadas = cantidad_metros * 39.3701
+    return millas, kilometros, pies, pulgadas
+def main():
+    nombre = input("Ingrese su nombre: ")
+    identificacion = input("Ingrese  identificación: ")
+    print(f"Bienvenido amigo {nombre} - {identificacion}")
+    
+    while True:
+        try:
+            metros = float(input("Ingrese cantidad en metros: "))
+            if metros < 0:
+                raise ValueError("Por favor, ingrese cantidad positiva.")
+            millas, kilometros, pies, pulgadas = metros_a_sistema_ingles(metros)
+            print("Resultado:")
+            print(f"Millas: {millas:.2f}")
+            print(f"Kilómetros: {kilometros:.2f}")
+            print(f"Pies: {pies:.2f}")
+            print(f"Pulgadas: {pulgadas:.2f}")
+        except ValueError as e:
+            print(f"Error: {e}")
+        finally:
+            respuesta = input("¿Desea ingresar otra cantidad en metros? (Sí/No): ").lower()
+            if respuesta.lower()!= "sí":
+                break
+            print("Operaciones realizadas correctamenete")
+
